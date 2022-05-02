@@ -25,8 +25,8 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
+    pool:  
+      name: Local 
     steps:
     - task: Docker@1
       displayName: Build and push an image to container registry
