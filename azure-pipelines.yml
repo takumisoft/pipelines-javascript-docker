@@ -9,7 +9,7 @@ resources:
 - repo: self
 
 variables:
-  azureSubscription: 'Azure subscription 1'
+  azureSubscription: '95a5a2db-5322-40bb-968e-7d136b11a5da'
   appName: 'sample-webapp-zynala'
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '3b05eecc-9c35-4642-990c-8b5ad58a570e'
