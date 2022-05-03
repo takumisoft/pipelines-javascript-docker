@@ -9,6 +9,8 @@ resources:
 - repo: self
 
 variables:
+  azureSubscription: 'Azure subscription 1'
+  appName: 'sample-webapp-zynala'
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '3b05eecc-9c35-4642-990c-8b5ad58a570e'
   imageRepository: 'takumisoftpipelinesjavascriptdocker'
@@ -37,3 +39,9 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureWebAppContainer@1
+      displayName: 'Azure Web App on Container Deploy'
+      inputs:
+        azureSubscription: $(azureSubscription)
+        appName: $(appName)
+        containers: $(containerRegistry)/$(imageRepository):$(tag)
